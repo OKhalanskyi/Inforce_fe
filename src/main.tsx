@@ -5,13 +5,16 @@ import './app/styles/index.css'
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from '@/app/store/store.ts';
+import ErrorBoundary from '@/app/errorBoundary/ErrorBoundary.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <Provider store={store}>
-        <App />
-      </Provider>
+      <ErrorBoundary>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </ErrorBoundary>
     </BrowserRouter>
   </React.StrictMode>,
 )
